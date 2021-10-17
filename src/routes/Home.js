@@ -5,16 +5,14 @@ const Home = ({ userObj }) => {
   const [tweet, setTweet] = useState("");
   const [tweets, setTweets] = useState([]);
 
-  const getTweets = async () => {
-    const dbTweets = await dbService.collection("tweets").get();
-    dbTweets.forEach((document) => {
-      const tweetObject = { ...document.data(), id: document.id };
-      setTweets((prev) => [tweetObject, ...prev]);
-    });
-  };
-
   useEffect(() => {
-    getTweets();
+    dbService.collection("tweets").onSnapshot((snapshot) => {
+      const tweets = snapshot.docs.map((document) => ({
+        ...document.data(),
+        id: document.id,
+      }));
+      setTweets(tweets);
+    });
   }, []);
 
   const onSubmit = async (event) => {
