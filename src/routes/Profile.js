@@ -3,13 +3,31 @@ import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Tweet from "components/Tweet";
 
-const Profile = ({ userObj }) => {
+const Profile = ({ refreshUser, userObj }) => {
   const [tweets, setTweets] = useState([]);
-
+  const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
   const history = useHistory();
+
   const onLogOutClick = () => {
     authService.signOut();
     history.push("/");
+  };
+
+  const onChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setNewDisplayName(value);
+  };
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    if (userObj.displayName !== newDisplayName) {
+      await userObj.updateProfile({
+        displayName: newDisplayName,
+      });
+      refreshUser();
+    }
   };
 
   const getMyTweets = async () => {
@@ -30,6 +48,15 @@ const Profile = ({ userObj }) => {
 
   return (
     <>
+      <form onSubmit={onSubmit}>
+        <input
+          onChange={onChange}
+          type="text"
+          placeholder="Display name"
+          value={newDisplayName}
+        />
+        <input type="submit" value="Update Profile" />
+      </form>
       <div>
         <button onClick={onLogOutClick}>Log Out</button>
       </div>
