@@ -9,13 +9,16 @@ const Home = ({ userObj }) => {
   const [attachment, setAttachment] = useState("");
 
   useEffect(() => {
-    dbService.collection("tweets").onSnapshot((snapshot) => {
-      const tweets = snapshot.docs.map((document) => ({
-        ...document.data(),
-        id: document.id,
-      }));
-      setTweets(tweets);
-    });
+    dbService
+      .collection("tweets")
+      .orderBy("createdAt", "desc")
+      .onSnapshot((snapshot) => {
+        const tweets = snapshot.docs.map((document) => ({
+          ...document.data(),
+          id: document.id,
+        }));
+        setTweets(tweets);
+      });
   }, []);
 
   const onSubmit = async (event) => {
