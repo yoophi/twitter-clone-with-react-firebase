@@ -33,7 +33,7 @@ const Tweet = ({ tweet, isOwner }) => {
   };
 
   return (
-    <div>
+    <div style={{ border: "1px solid #ccc", padding: "8px", margin: "4px 0" }}>
       {editing ? (
         <>
           <form onSubmit={onSubmit}>
@@ -46,6 +46,9 @@ const Tweet = ({ tweet, isOwner }) => {
         </>
       ) : (
         <>
+          <div>
+            <small style={{ color: "#ccc" }}>{"@" + tweet.creatorId}</small>
+          </div>
           <h4>{tweet.text}</h4>
           {tweet.attachmentUrl && (
             <div>
