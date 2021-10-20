@@ -58,7 +58,9 @@ const Profile = ({ refreshUser, userObj }) => {
         <input type="submit" value="Update Profile" />
       </form>
       <div>
-        <button onClick={onLogOutClick}>Log Out</button>
+        <button className="btn btn-primary" onClick={onLogOutClick}>
+          Log Out
+        </button>
       </div>
       <div>
         {tweets.map((tweet) => (

@@ -41,7 +41,9 @@ const Tweet = ({ tweet, isOwner }) => {
             <input type="submit" value="Update Tweet" />
           </form>
           <div>
-            <button onClick={toggleEditing}>Cancel</button>
+            <button className="btn btn-primary" onClick={toggleEditing}>
+              Cancel
+            </button>
           </div>
         </>
       ) : (
@@ -61,8 +63,18 @@ const Tweet = ({ tweet, isOwner }) => {
           )}
           {isOwner && (
             <div>
-              <button onClick={onDeleteClick}>Delete Tweet</button>
-              <button onClick={toggleEditing}>Edit Tweet</button>
+              <button
+                className="btn btn-sm btn-primary mr-1"
+                onClick={onDeleteClick}
+              >
+                Delete Tweet
+              </button>
+              <button
+                className="btn btn-sm btn-primary"
+                onClick={toggleEditing}
+              >
+                Edit Tweet
+              </button>
             </div>
           )}
         </>

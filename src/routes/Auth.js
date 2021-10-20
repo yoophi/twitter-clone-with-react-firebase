@@ -21,10 +21,18 @@ const Auth = () => {
       <AuthForm />
 
       <div>
-        <button onClick={onSocialCLick} name="google">
+        <button
+          className="btn btn-primary"
+          onClick={onSocialCLick}
+          name="google"
+        >
           Continue with Google
         </button>
-        <button onClick={onSocialCLick} name="github">
+        <button
+          className="btn btn-primary"
+          onClick={onSocialCLick}
+          name="github"
+        >
           Continue with Github
         </button>
       </div>

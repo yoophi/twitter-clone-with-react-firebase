@@ -61,11 +61,13 @@ const TweetFactory = ({ userObj }) => {
           maxLength={120}
         />
         <input type="file" accept="image/*" onChange={onFileChange} />
-        <input type="submit" value="Tweet" />
+        <input className="btn btn-primary" type="submit" value="Tweet" />
         {attachment && (
           <div>
             <img src={attachment} style={{ width: "50px" }} />
-            <button onClick={onClearAttachment}>Clear</button>
+            <button className="btn btn-primary" onClick={onClearAttachment}>
+              Clear
+            </button>
           </div>
         )}
       </form>

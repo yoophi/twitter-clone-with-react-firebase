@@ -14,7 +14,7 @@ function App() {
           updateProfile: (args) => user.updateProfile(args),
         });
       } else {
-        setUserObj(false)
+        setUserObj(false);
       }
       setInit(true);
     });

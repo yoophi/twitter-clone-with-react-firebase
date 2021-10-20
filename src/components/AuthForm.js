@@ -57,7 +57,7 @@ const AuthForm = () => {
         {error ? <div>{error}</div> : null}
       </form>
       <div>
-        <button onClick={toggleAccount}>
+        <button className="btn btn-primary" onClick={toggleAccount}>
           {newAccount ? "Sign In" : "Create Account"}
         </button>
       </div>
