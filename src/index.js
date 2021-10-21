@@ -5,9 +5,7 @@ import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="container mx-auto">
-      <App />
-    </div>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

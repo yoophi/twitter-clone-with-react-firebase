@@ -40,9 +40,6 @@ function App() {
       ) : (
         "initializing..."
       )}
-      <footer>
-        &copy; {new Date().getFullYear()} TwitterClone with React Firebase
-      </footer>
     </>
   );
 }
